@@ -1,0 +1,124 @@
+number x 2
+number y 40
+
+% notni sistem
+number n 0
+while {n < 5}
+{
+point A x y
+expression bx {x+100}
+point B bx y
+drawsegment A B
+expression y {y+6}
+expression n {n+1}
+}
+
+
+point vecX 0 0
+point vecY 18 6
+
+number n_startx 26
+number n_starty 34
+point C_t n_startx n_starty
+
+number n 0
+while { n < 4 }
+{
+fillellipse C_t 3 2
+getx Cx C_t
+gety Cy C_t
+
+if_then_else { n == 0 }
+{
+expression Cx {Cx-4}
+point startCNote Cx Cy
+expression Cx {Cx + 8 }
+point endCNote Cx Cy
+drawsegment startCNote endCNote
+}
+{
+getx Cx C_t
+gety Cy C_t
+}
+
+getx Cx C_t
+gety Cy C_t
+
+
+if_then_else {n < 3 }
+{
+expression Cx {Cx+3}
+point neckstart Cx Cy
+expression Cy {Cy + 10}
+point neckend Cx Cy
+
+}
+{
+expression Cx {Cx-3}
+point neckstart Cx Cy
+
+expression Cy {Cy - 10}
+point neckend Cx Cy
+
+}
+
+point neckend Cx Cy
+drawsegment neckstart neckend
+
+translate C_t vecX vecY C_t
+expression n { n + 1}
+}
+
+point C_s 35 37
+number n 0
+while { n < 4} 
+{
+fillellipse C_s 3 2
+
+getx Cx C_s
+gety Cy C_s
+
+if_then_else {n < 3 }
+{
+expression Cx {Cx+3}
+point neckstart Cx Cy
+expression Cy {Cy + 10}
+point neckend Cx Cy
+
+}
+{
+expression Cx {Cx-3}
+point neckstart Cx Cy
+
+expression Cy {Cy - 10}
+point neckend Cx Cy
+
+}
+
+point neckend Cx Cy
+drawsegment neckstart neckend
+
+translate C_s vecX vecY C_s
+expression n {n + 1}
+}
+
+point A 0 0 -7.8 -7.8
+getx aa A
+expression x { aa*cos(aa) + 10}
+expression y  {aa*sin(aa) + 46}
+point B x y
+trace B 0 0 0 
+
+point C  2.27 47.05 15 60
+trace C 0 0 0
+
+
+
+animation_frames 50 60
+
+
+
+
+
+
+
