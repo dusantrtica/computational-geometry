@@ -1,18 +1,24 @@
 number x 2
 number y 40
+number length 100
+number rowHeight 6
 
-% notni sistem
+procedure drawEmptySheet { startX startY length rowHeight }
+{
 number n 0
 while {n < 5}
 {
-point A x y
-expression bx {x+100}
-point B bx y
+point A startX startY
+expression bx { startX + length }
+point B bx startY
 drawsegment A B
-expression y {y+6}
-expression n {n+1}
+expression startY { startY + rowHeight}
+expression n {n + 1}
+}
 }
 
+
+call drawEmptySheet {x y length rowHeight}
 
 point vecX 0 0
 point vecY 18 6
