@@ -102,6 +102,7 @@ translate C_s vecX vecY C_s
 expression n {n + 1}
 }
 
+linethickness 0.5
 point A 0 0 -7.8 -7.8
 getx aa A
 expression x { aa*cos(aa) + 10}
@@ -109,12 +110,27 @@ expression y  {aa*sin(aa) + 46}
 point B x y
 trace B 0 0 0 
 
-point C  2.27 47.05 15 60
+
+point C  9.8 54 12 61
 trace C 0 0 0
 
+point D 12 61 8 61
+getx  ppx D
+expression ppy {-(ppx-10)*(ppx-10)+65}
+point DP ppx ppy
+trace DP 0 0 0
 
+point E 8 61 11 37
+trace E 0 0 0
+
+point F 11 35 8 35
+getx lpx F
+expression lpy {(lpx-9.5)*(lpx-9.5)+34.75}
+point LP lpx lpy
+trace LP 0 0 0
 
 animation_frames 50 60
+
 
 
 
