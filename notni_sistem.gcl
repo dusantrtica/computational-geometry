@@ -35,6 +35,8 @@ number noteHalfHeight 2
 number barHeight 10
 
 fillellipse centerPt noteHalfWidth  noteHalfHeight
+
+% if half note is set to be drawn, draw white ellipse inside
 if_then_else { noteLen == 2}
 {
 color 255 255 255
