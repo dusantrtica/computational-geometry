@@ -87,13 +87,7 @@ expression Cx {Cx + 8 }
 point endCNote Cx Cy
 drawsegment startCNote endCNote
 }
-{
-getx Cx C_t
-gety Cy C_t
-}
-
-getx Cx C_t
-gety Cy C_t
+{}
 
 translate C_t vecX vecY C_t
 expression n { n + 1}
@@ -104,9 +98,6 @@ number n 0
 while { n < 4} 
 {
 call drawNote { C_s n }
-
-getx Cx C_s
-gety Cy C_s
 
 translate C_s vecX vecY C_s
 expression n {n + 1}
@@ -147,6 +138,7 @@ point LP lpx lpy
 trace LP 0 0 0
 
 animation_frames 50 60
+
 
 
 
