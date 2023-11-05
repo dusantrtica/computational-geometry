@@ -36,6 +36,20 @@ number barHeight 10
 
 fillellipse centerPt noteHalfWidth  noteHalfHeight
 
+% C note has a bar which is crossing its body
+if_then_else { noteOrdNo == 0 }
+{
+getx tmpCx centerPt
+gety tmpCy centerPt
+
+expression tmpCx {tmpCx-4}
+point startCNote tmpCx tmpCy
+expression tmpCx {tmpCx + 8 }
+point endCNote tmpCx tmpCy
+drawsegment startCNote endCNote
+}
+{}
+
 % if half note is set to be drawn, draw white ellipse inside
 if_then_else { noteLen == 2}
 {
@@ -48,7 +62,7 @@ color 0 0 0
 getx Cx centerPt
 gety Cy centerPt
 
-if_then_else {noteOrdNo < 3 }
+if_then_else {noteOrdNo < 6 }
 {
 expression Cx {Cx+noteHalfWidth}
 point neckstart Cx Cy
@@ -69,40 +83,17 @@ drawsegment neckstart neckend
 
 
 point vecX 0 0
-point vecY 18 6
+point vecY 8 3
 
 point C_t n_startx n_starty
 
 number n 0
-while { n < 4 }
+while { n < 10 }
 {
 call drawNote { C_t n}
-getx Cx C_t
-gety Cy C_t
-
-% C note has a bar which is crossing its body
-if_then_else { n == 0 }
-{
-expression Cx {Cx-4}
-point startCNote Cx Cy
-expression Cx {Cx + 8 }
-point endCNote Cx Cy
-drawsegment startCNote endCNote
-}
-{}
 
 translate C_t vecX vecY C_t
 expression n { n + 1}
-}
-
-point C_s 35 37
-number n 0
-while { n < 4} 
-{
-call drawNote { C_s n }
-
-translate C_s vecX vecY C_s
-expression n {n + 1}
 }
 
 call drawEmptySheet {x y length rowHeight}
@@ -140,6 +131,7 @@ point LP lpx lpy
 trace LP 0 0 0
 
 animation_frames 50 60
+
 
 
 
