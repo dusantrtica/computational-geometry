@@ -89,18 +89,17 @@ point vecX 0 0
 point vecY 8 3
 
 number n 0
-array notes { 10 }
+array notes { 9 }
 expression notes[0] {2}
 expression notes[1] {4}
 expression notes[2] {6}
-expression notes[3] {8}
-expression notes[4] {9}
-expression notes[5] {0}
+expression notes[3] {7}
+expression notes[4] {5}
+expression notes[5] {3}
 expression notes[6] {1}
-expression notes[7] {5}
-expression notes[8] {9}
-expression notes[9] {3}
-while { n < 10 }
+expression notes[7] {0}
+expression notes[8] {1}
+while { n < 9 }
 {
 call drawNote { n_startx n_starty notes[n] }
 expression n_startx {n_startx + 8 }
@@ -142,6 +141,7 @@ point LP lpx lpy
 trace LP 0 0 0
 
 animation_frames 50 60
+
 
 
 
