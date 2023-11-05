@@ -25,7 +25,7 @@ expression n {n + 1}
 % function which draws note as an elipse
 % and a note bar heading upwards or downwards
 % depending on the position of the note in the system
-procedure drawNote {centerPt noteOrdNo }
+procedure drawNote { startx starty noteOrdNo }
 {
 % set this param to 2 if you want note of a 
 % half length to be displayed
@@ -33,6 +33,10 @@ number noteLen  1
 number noteHalfWidth 3
 number noteHalfHeight 2
 number barHeight 10
+
+expression x { startx + 0*noteOrdNo}
+expression y {starty + 3*noteOrdNo}
+point centerPt x y
 
 fillellipse centerPt noteHalfWidth  noteHalfHeight
 
@@ -85,14 +89,22 @@ drawsegment neckstart neckend
 point vecX 0 0
 point vecY 8 3
 
-point C_t n_startx n_starty
-
 number n 0
+array notes { 10 }
+expression notes[0] {2}
+expression notes[1] {4}
+expression notes[2] {6}
+expression notes[3] {8}
+expression notes[4] {9}
+expression notes[5] {0}
+expression notes[6] {1}
+expression notes[7] {5}
+expression notes[8] {9}
+expression notes[9] {3}
 while { n < 10 }
 {
-call drawNote { C_t n}
-
-translate C_t vecX vecY C_t
+call drawNote { n_startx n_starty notes[n] }
+expression n_startx {n_startx + 8 }
 expression n { n + 1}
 }
 
@@ -131,6 +143,7 @@ point LP lpx lpy
 trace LP 0 0 0
 
 animation_frames 50 60
+
 
 
 
