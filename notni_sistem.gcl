@@ -34,9 +34,8 @@ number noteHalfWidth 3
 number noteHalfHeight 2
 number barHeight 10
 
-expression x { startx + 0*noteOrdNo}
 expression y {starty + 3*noteOrdNo}
-point centerPt x y
+point centerPt startx y
 
 fillellipse centerPt noteHalfWidth  noteHalfHeight
 
